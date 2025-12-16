@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Emissão de CO2</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>🌿 Calculadora de Emissão de CO<span>2</span></h1>
+        <p>Calcule a emissão de dióxido de carbono baseada na distância e modo de transporte.</p>
+    </header>
+
+    <main>
+        <form id="calculador-form">
+            <label for="origin">Origem:</label>
+            <input type="text" id="origin" list="cities-list" required placeholder="Digite a cidade de origem">
+
+            <label for="destination">Destino:</label>
+            <input type="text" id="destination" list="cities-list" required placeholder="Digite a cidade de destino">
+
+            <datalist id="cities-list">
+                <!-- Cidades serão populadas via JavaScript -->
+            </datalist>
+
+            <label for="distance">Distância (km):</label>
+            <input type="number" id="distance" readonly value="0">
+
+            <label for="manual-distance" class="label-for-manual-distance">
+                <input type="checkbox" id="manual-distance"> Inserir distância manualmente
+            </label>
+
+            <fieldset>
+                <legend>Modo de Transporte:</legend>
+                <div class="transport-grid">
+                    <label>
+                        <input type="radio" name="transport" value="bicycle">
+                        <span class="emoji">🚲</span>
+                        <span>Bicicleta</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="transport" value="car" checked>
+                        <span class="emoji">🚗</span>
+                        <span>Carro</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="transport" value="bus">
+                        <span class="emoji">🚌</span>
+                        <span>Ônibus</span>
+                    </label>
+                    <label>
+                        <input type="radio" name="transport" value="truck">
+                        <span class="emoji">🚚</span>
+                        <span>Caminhão</span>
+                    </label>
+                </div>
+            </fieldset>
+
+            <button type="submit" id="calculate-btn">Calcular Emissão</button>
+        </form>
+
+        <section id="results" hidden class="hidden">
+            <h2>Resultados</h2>
+            <div id="results-content"></div>
+        </section>
+
+        <section id="comparison" hidden class="hidden">
+            <h2>Comparação</h2>
+            <div id="comparison-content"></div>
+        </section>
+
+        <section id="carbon-credits" hidden class="hidden">
+            <h2>Créditos de Carbono</h2>
+            <div id="carbon-credits-content"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Desenvolvido com amor para a DIO | Projeto GitHub Copilot do Leo</p>
+    </footer>
+
+    <script src="js/routes-data.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/calculator.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
